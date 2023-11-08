@@ -1,0 +1,148 @@
+{
+  "name": "ngf-angular-files",
+  "displayName": "ferhado angular files",
+  "description": "Generates Angular components, services, modules, directives, and renames angular files with it's class name and related files.",
+  "version": "0.0.1",
+  "publisher": "ferhado",
+  "keywords": [
+    "angular",
+    "angular files",
+    "angular component",
+    "angular service",
+    "angular module",
+    "angular-cli",
+    "typescript",
+    "templates"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ferhado/ferhado-angular-files.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "ngf.files.menu.rename": {
+          "type": "boolean",
+          "default": true,
+          "description": "Toggle `Rename Angular Files` in Explorer Context"
+        },
+        "ngf.files.menu.component": {
+          "type": "boolean",
+          "default": true,
+          "description": "Toggle `New Component` in Explorer Context"
+        },
+        "ngf.files.menu.component-inline": {
+          "type": "boolean",
+          "default": true,
+          "description": "Toggle `New Component Inline` in Explorer Context"
+        },
+        "ngf.files.menu.module": {
+          "type": "boolean",
+          "default": true,
+          "description": "Toggle `New Module` in Explorer Context"
+        },
+        "ngf.files.menu.service": {
+          "type": "boolean",
+          "default": true,
+          "description": "Toggle `New Service` in Explorer Context"
+        },
+        "ngf.files.menu.directive": {
+          "type": "boolean",
+          "default": true,
+          "description": "Toggle `New Directive` in Explorer Context"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extension.ngfFilesRename",
+        "title": "Rename Angular Files"
+      },
+      {
+        "command": "extension.ngfFilesNewComponent",
+        "title": "New Component"
+      },
+      {
+        "command": "extension.ngfFilesNewInlineComponent",
+        "title": "New Component Inline"
+      },
+      {
+        "command": "extension.ngfFilesNewModule",
+        "title": "New Module"
+      },
+      {
+        "command": "extension.ngfFilesNewService",
+        "title": "New Service"
+      },
+      {
+        "command": "extension.ngfFilesNewDirective",
+        "title": "New Directive"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceLangId == typescript",
+          "command": "extension.ngfFilesRename",
+          "group": "Ferhado Angular Files"
+        },
+        {
+          "when": "config.ngf.files.menu.all || config.ngf.files.menu.component-inline",
+          "command": "extension.ngfFilesNewInlineComponent",
+          "group": "Ferhado Angular Files"
+        },
+        {
+          "when": "config.ngf.files.menu.all || config.ngf.files.menu.component",
+          "command": "extension.ngfFilesNewComponent",
+          "group": "Ferhado Angular Files"
+        },
+        {
+          "when": "config.ngf.files.menu.all || config.ngf.files.menu.module",
+          "command": "extension.ngfFilesNewModule",
+          "group": "Ferhado Angular Files"
+        },
+        {
+          "when": "config.ngf.files.menu.all || config.ngf.files.menu.service",
+          "command": "extension.ngfFilesNewService",
+          "group": "Ferhado Angular Files"
+        },
+        {
+          "when": "config.ngf.files.menu.all || config.ngf.files.menu.directive",
+          "command": "extension.ngfFilesNewDirective",
+          "group": "Ferhado Angular Files"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "pack": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.84.0",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2",
+    "@vscode/test-electron": "^2.3.6"
+  }
+}
