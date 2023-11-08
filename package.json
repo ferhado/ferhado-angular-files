@@ -2,7 +2,7 @@
   "name": "ngf-angular-files",
   "displayName": "ferhado angular files",
   "description": "Generates Angular components, services, modules, directives, and renames angular files with it's class name and related files.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "ferhado",
   "keywords": [
     "angular",
@@ -23,7 +23,8 @@
     "vscode": "^1.84.0"
   },
   "categories": [
-    "Other"
+    "Snippets",
+    "Programming Languages"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
