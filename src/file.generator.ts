@@ -6,6 +6,7 @@ import { loadTemplate, toCamelCase } from './utils';
 
 export function generateFileContent(directoryPath: string, baseName: string, action: any, angularConfig: any): void {
   const resourcePath = /^(Component|Module)$/.test(action.command) ? path.join(directoryPath, baseName) : directoryPath;
+  const isSingleTsFile = ['InlineComponent', 'Service', 'Directive'].includes(action.command);
 
   if (/^(Component|Module)$/.test(action.command)) {
     fs.mkdirSync(resourcePath, { recursive: true });
@@ -16,7 +17,7 @@ export function generateFileContent(directoryPath: string, baseName: string, act
     let fileExt = source.ext;
     let styleExt = angularConfig.style ?? 'scss';
 
-    if (!SUPPORTED_STYLE_EXTENSIONS.includes(styleExt)) {
+    if (!SUPPORTED_STYLE_EXTENSIONS.includes(styleExt) && !isSingleTsFile) {
       vscode.window.showWarningMessage(`Unsupported style extension "${styleExt}". Defaulting to "scss".`);
       styleExt = 'scss';
     }
@@ -44,6 +45,18 @@ export function generateFileContent(directoryPath: string, baseName: string, act
 
     writeFile(filePath, content);
   });
+
+  if (isSingleTsFile) {
+    const indexFilePath = path.join(directoryPath, 'index.ts');
+    if (fs.existsSync(indexFilePath)) {
+      const indexFileContent = fs.readFileSync(indexFilePath, 'utf8');
+      const exportRegex = new RegExp(`export \\* from ['"]\\./${baseName}['"];\\n`);
+      if (!exportRegex.test(indexFileContent)) {
+        const exportStatement = `\nexport * from './${baseName}';\n`;
+        fs.appendFileSync(indexFilePath, exportStatement);
+      }
+    }
+  }
 }
 
 export function writeFile(filePath: string, content: string): void {
