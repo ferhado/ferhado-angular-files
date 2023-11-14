@@ -49,11 +49,15 @@ export function generateFileContent(directoryPath: string, baseName: string, act
   if (isSingleTsFile) {
     const indexFilePath = path.join(directoryPath, 'index.ts');
     if (fs.existsSync(indexFilePath)) {
-      const indexFileContent = fs.readFileSync(indexFilePath, 'utf8');
-      const exportRegex = new RegExp(`export \\* from ['"]\\./${baseName}['"];\\n`);
+      const fileSuffix = action.command.toLowerCase().replace('inline', '');
+      const fileName = `${baseName}.${fileSuffix}`;
+      const exportRegex = new RegExp(`export \\* from ['"]\\./${fileName}['"]`);
+      let indexFileContent = fs.readFileSync(indexFilePath, 'utf8');
+
       if (!exportRegex.test(indexFileContent)) {
-        const exportStatement = `\nexport * from './${baseName}';\n`;
-        fs.appendFileSync(indexFilePath, exportStatement);
+        indexFileContent = indexFileContent.replace(/\n+$/, '');
+        const exportStatement = `\nexport * from './${fileName}';\n`;
+        fs.writeFileSync(indexFilePath, indexFileContent + exportStatement);
       }
     }
   }
