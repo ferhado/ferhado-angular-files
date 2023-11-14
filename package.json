@@ -2,7 +2,7 @@
   "name": "ngf-angular-files",
   "displayName": "Ngf Angular Files",
   "description": "Generates Angular components, services, modules, directives, and renames angular files with it's class name and related files.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "ferhado",
   "keywords": [
     "angular",
