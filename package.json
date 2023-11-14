@@ -49,7 +49,7 @@
         },
         "ngf.files.menu.module": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Toggle `New Module` in Explorer Context"
         },
         "ngf.files.menu.service": {
