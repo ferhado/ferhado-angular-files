@@ -1,6 +1,10 @@
-# Ferhado Angular Files Extension
+# Ngf Angular Files Extension
 
 A vscode extension for quick generation of Angular components, services, modules, directives, and renames angular files with it's class name and related files.
+
+<p align="center">
+  <img src="assets\ngf-angular-files-vsce-ext.gif" alt="Description of GIF">
+</p>
 
 ## Features
 

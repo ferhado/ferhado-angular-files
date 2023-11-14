@@ -1,6 +1,6 @@
 {
   "name": "ngf-angular-files",
-  "displayName": "ferhado angular files",
+  "displayName": "Ngf Angular Files",
   "description": "Generates Angular components, services, modules, directives, and renames angular files with it's class name and related files.",
   "version": "1.0.1",
   "publisher": "ferhado",
