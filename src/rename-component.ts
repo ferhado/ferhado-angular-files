@@ -1,15 +1,15 @@
-import * as fs from "fs";
-import * as path from "path";
-import * as vscode from "vscode";
-import { normalizePath, toCamelCase } from "./utils";
+import * as fs from 'fs';
+import * as path from 'path';
+import * as vscode from 'vscode';
+import { normalizePath, toCamelCase } from './utils';
 
 async function renameImportsInContent(filePath: string, currentBasename: string, newBasename: string): Promise<void> {
-  let fileContent = await fs.promises.readFile(filePath, "utf8");
+  let fileContent = await fs.promises.readFile(filePath, 'utf8');
 
-  const templateUrlRegex = new RegExp(`templateUrl: ["']\\./${currentBasename}\\.component\\.html["']`, "g");
+  const templateUrlRegex = new RegExp(`templateUrl: ["']\\./${currentBasename}\\.component\\.html["']`, 'g');
   const styleUrlsRegex = new RegExp(
     `styleUrls: \\["\\./${currentBasename}\\.component\\.(scss|css|less|sass)"\\]`,
-    "g"
+    'g'
   );
 
   fileContent = fileContent.replace(templateUrlRegex, `templateUrl: "./${newBasename}.component.html"`);
@@ -19,11 +19,11 @@ async function renameImportsInContent(filePath: string, currentBasename: string,
 
   const oldClassName = toCamelCase(currentBasename);
   const newClassName = toCamelCase(newBasename);
-  const classRegex = new RegExp(`${oldClassName}(Component|Module|Service|Directive)`, "g");
+  const classRegex = new RegExp(`${oldClassName}(Component|Module|Service|Directive)`, 'g');
   fileContent = fileContent.replace(classRegex, `${newClassName}$1`);
 
   fileContent = fileContent.replace(
-    new RegExp(`from ["']\\./${currentBasename}\\.(component|module|service|directive)["']`, "g"),
+    new RegExp(`from ["']\\./${currentBasename}\\.(component|module|service|directive)["']`, 'g'),
     `from "./${newBasename}.$1"`
   );
 
@@ -35,6 +35,11 @@ async function renameComponentFiles(dirPath: string, currentBasename: string, ne
 
   for (const file of files) {
     const fullPath = path.join(dirPath, file);
+    const fileStat = await fs.promises.stat(fullPath);
+
+    if (fileStat.isDirectory()) {
+      continue;
+    }
 
     if (
       new RegExp(`^${currentBasename}\\.(module|service|directive)\\.ts$`).test(file) ||
@@ -57,17 +62,17 @@ export async function showRenameComponentDialog(uri: vscode.Uri) {
   const folderUri = uri || (vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri : null);
 
   if (!folderUri) {
-    vscode.window.showErrorMessage("No destination directory selected.");
+    vscode.window.showErrorMessage('No destination directory selected.');
     return;
   }
 
   const currentFilePath = folderUri.fsPath;
 
-  if (!currentFilePath.endsWith(".ts")) return;
-  let currentBasename = path.basename(currentFilePath).replace(/(\.component|\.service|\.module|\.directive)\.ts$/, "");
+  if (!currentFilePath.endsWith('.ts')) return;
+  let currentBasename = path.basename(currentFilePath).replace(/(\.component|\.service|\.module|\.directive)\.ts$/, '');
 
-  let newName = await vscode.window.showInputBox({ prompt: "Rename to", value: currentBasename });
-  newName = normalizePath(newName ?? "");
+  let newName = await vscode.window.showInputBox({ prompt: 'Rename to', value: currentBasename });
+  newName = normalizePath(newName ?? '');
 
   if (!newName || newName === currentBasename || /^[0-9]/.test(newName)) {
     return;
