@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.2]
+
+- Changed extension display name to Ngf.
+- Added documentation GIF.
+
 ## [1.0.1]
 
 - fix: Enforce Valid TypeScript Class Naming for File Names
