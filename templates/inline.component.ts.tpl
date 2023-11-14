@@ -1,5 +1,5 @@
+import { Component, EventEmitter, OnInit, Input, Output } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
 
 @Component({
   standalone: true,
@@ -15,6 +15,13 @@ import { Component } from "@angular/core";
     `
   ]
 })
-export class %CLASS_NAME%Component {
+export class %CLASS_NAME%Component implements OnInit {
+  @Input({ required: true }) value!: string;
+  @Output() valueChange: EventEmitter<any> = new EventEmitter();
+
   constructor() {}
+
+  ngOnInit(): void {
+    
+  }
 }
