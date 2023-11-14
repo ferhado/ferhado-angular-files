@@ -1,5 +1,5 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from 'fs';
+import * as path from 'path';
 
 export async function getAngularConfig(
   workspacePath: string
@@ -9,14 +9,14 @@ export async function getAngularConfig(
     let prefix = null;
 
     try {
-      const angularJsonPath = path.join(workspacePath, "angular.json");
+      const angularJsonPath = path.join(workspacePath, 'angular.json');
       const angularJsonExists = fs.existsSync(angularJsonPath);
 
       if (!angularJsonExists) {
-        return { style, prefix };
+        resolve({ style, prefix });
       }
 
-      const angularJsonContent = fs.readFileSync(angularJsonPath, "utf8");
+      const angularJsonContent = fs.readFileSync(angularJsonPath, 'utf8');
       const angularJson = JSON.parse(angularJsonContent);
       let defaultProject = angularJson.defaultProject;
 
@@ -26,7 +26,7 @@ export async function getAngularConfig(
       }
 
       const projectConfig = angularJson.projects[defaultProject];
-      style = projectConfig.schematics["@schematics/angular:component"].style;
+      style = projectConfig.schematics['@schematics/angular:component'].style;
       prefix = projectConfig.prefix;
     } catch (error) {}
 
