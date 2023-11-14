@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 @Component({
@@ -8,6 +8,11 @@ import { CommonModule } from "@angular/common";
   standalone: true,
   imports: [CommonModule]
 })
-export class %CLASS_NAME%Component {
+export class %CLASS_NAME%Component implements OnInit {
+
   constructor() {}
+
+  ngOnInit(): void {
+    
+  }
 }
