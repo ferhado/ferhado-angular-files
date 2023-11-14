@@ -17,30 +17,30 @@ A vscode extension for quick generation of Angular components, services, modules
 
 - New Component:
 
-  - `component.ts` (standalone: true).
+  - `component.ts` _(standalone: true)_.
   - `component.html`
   - `component.scss/css/less/sass`
   - `index.ts`
 
-- New Module:
+- New Module: [_(needs to be activated via settings)_](#module-settings)
 
   - `module.ts`
-  - `component.ts` (declared in module).
+  - `component.ts` _(declared in module)_.
   - `component.html`
   - `component.scss/css/less/sass`
-  - `service.ts` (provided in module).
+  - `service.ts` _(provided in module)_.
   - `index.ts`
 
 - New Service:
 
-  - `service.ts` (provided in root).
+  - `service.ts` _(provided in root)_.
 
 - New Directive:
-  - `directive.ts` (standalone: true).
+  - `directive.ts` _(standalone: true)_.
 
 ## Configuration Options
 
-All commands are enabled by default:
+All commands are enabled by default expect module:<a id="module-settings"></a>
 
 - `ngf.files.menu.rename`: Toggle `Rename Angular Files` in Explorer Context (default: true).
 - `ngf.files.menu.component`: Toggle `New Component` in Explorer Context (default: true).
