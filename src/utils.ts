@@ -1,6 +1,6 @@
-import * as fs from "fs";
-import * as path from "path";
-import * as vscode from "vscode";
+import * as fs from 'fs';
+import * as path from 'path';
+import * as vscode from 'vscode';
 
 export async function getInputName(type: string): Promise<string | undefined> {
   const inputName = await vscode.window.showInputBox({ prompt: `Enter Your ${type} Name` });
@@ -15,30 +15,37 @@ export function createDirectory(folderUri: vscode.Uri, pathSegments: string[]): 
 
 export function toCamelCase(str: string): string {
   return str
-    .replace(/^[a-z]/, match => match.toUpperCase())
-    .replace(/[-_]+(.)?/g, (match, group1) => (group1 ? group1.toUpperCase() : ""));
+    .replace(/^[a-z]/, (match) => match.toUpperCase())
+    .replace(/[-_]+(.)?/g, (match, group1) => (group1 ? group1.toUpperCase() : ''));
 }
 
 export function normalizePath(inputName: string): string {
+  if (!/^[A-Za-z][A-Za-z0-9_]*$/.test(inputName)) {
+    vscode.window.showErrorMessage(
+      `Invalid file name "${inputName}". Filename must start with an alphabet and only contain alphanumeric characters and underscores.`
+    );
+    return '';
+  }
+
   return (
     inputName
       .trim()
       // Remove any leading non-alpha characters followed by numbers
-      .replace(/^[^a-zA-Z]*\d+/, "")
+      .replace(/^[^a-zA-Z]*\d+/, '')
       // Rest of the normalization
-      .replace(/[^a-zA-Z0-9 \_\-/]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/\/+/g, "/")
+      .replace(/[^a-zA-Z0-9 \_\-/]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/\/+/g, '/')
       .toLowerCase()
   );
 }
 
 export function loadTemplate(template: string): string {
   try {
-    const templatePath = path.join(__dirname, "..", "templates", `${template}.tpl`);
-    return fs.readFileSync(templatePath, "utf8");
+    const templatePath = path.join(__dirname, '..', 'templates', `${template}.tpl`);
+    return fs.readFileSync(templatePath, 'utf8');
   } catch (error) {
-    return "";
+    return '';
   }
 }
 
