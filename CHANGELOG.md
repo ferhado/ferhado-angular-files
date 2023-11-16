@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.3]
+
+- fix: removed filename regex, due incorrect validation.
+
 ## [1.0.2]
 
 - Changed extension display name to Ngf.
