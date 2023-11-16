@@ -20,20 +20,13 @@ export function toCamelCase(str: string): string {
 }
 
 export function normalizePath(inputName: string): string {
-  if (!/^[A-Za-z][A-Za-z0-9_]*$/.test(inputName)) {
-    vscode.window.showErrorMessage(
-      `Invalid file name "${inputName}". Filename must start with an alphabet and only contain alphanumeric characters and underscores.`
-    );
-    return '';
-  }
-
   return (
     inputName
       .trim()
       // Remove any leading non-alpha characters followed by numbers
-      .replace(/^[^a-zA-Z]*\d+/, '')
+      .replace(/^[^a-zA-Z]+/, '')
       // Rest of the normalization
-      .replace(/[^a-zA-Z0-9 \_\-/]/g, '')
+      .replace(/[^a-zA-Z0-9 \_\-/\.]/g, '')
       .replace(/\s+/g, '-')
       .replace(/\/+/g, '/')
       .toLowerCase()
