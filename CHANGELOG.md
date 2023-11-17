@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.4]
+
+- feat: Add extension icon for improved marketplace visibility
+
 ## [1.0.3]
 
 - fix: removed filename regex, due incorrect validation.
