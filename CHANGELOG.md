@@ -2,6 +2,8 @@
 
 ## [1.0.4]
 
+- fix: Correct handling of single and double quotes in renaming paths.
+- feat: Adapt renaming functionality to support Angular 17's styleUrls and styleUrl.
 - feat: Add extension icon for improved marketplace visibility
 
 ## [1.0.3]
