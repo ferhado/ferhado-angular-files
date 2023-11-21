@@ -6,15 +6,20 @@ import { normalizePath, toCamelCase } from './utils';
 async function renameImportsInContent(filePath: string, currentBasename: string, newBasename: string): Promise<void> {
   let fileContent = await fs.promises.readFile(filePath, 'utf8');
 
-  const templateUrlRegex = new RegExp(`templateUrl: ["']\\./${currentBasename}\\.component\\.html["']`, 'g');
+  const regexOptions = 'g';
+  const templateUrlRegex = new RegExp(`templateUrl: ["']\\./${currentBasename}\\.component\\.html["']`, regexOptions);
+  fileContent = fileContent.replace(templateUrlRegex, `templateUrl: "./${newBasename}.component.html"`);
+
   const styleUrlsRegex = new RegExp(
-    `styleUrls: \\["\\./${currentBasename}\\.component\\.(scss|css|less|sass)"\\]`,
+    `styleUrls: \\[["']\\./${currentBasename}\\.component\\.(scss|css|less|sass)["']\\]|styleUrl: ["']\\./${currentBasename}\\.component\\.(scss|css|less|sass)["']`,
     'g'
   );
 
-  fileContent = fileContent.replace(templateUrlRegex, `templateUrl: "./${newBasename}.component.html"`);
-  fileContent = fileContent.replace(styleUrlsRegex, (match, p1) => {
-    return `styleUrls: ["./${newBasename}.component.${p1}"]`;
+  fileContent = fileContent.replace(styleUrlsRegex, (match, p1, p2) => {
+    const ext = p1 || p2;
+    return match.includes('styleUrls')
+      ? `styleUrls: ["./${newBasename}.component.${ext}"]`
+      : `styleUrl: "./${newBasename}.component.${ext}"`;
   });
 
   const oldClassName = toCamelCase(currentBasename);
