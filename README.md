@@ -3,7 +3,7 @@
 A vscode extension for quick generation of Angular components, services, modules, directives, and renames angular files with it's class name and related files.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ferhado/ferhado-angular-files/main/assets/ngf-angular-files-vsce-ext.gif" alt="Description of GIF">
+  <img src="https://raw.githubusercontent.com/ferhado/ferhado-angular-files/main/assets/ngf-angular-files-vsce-ext2.gif" alt="Description of GIF">
 </p>
 
 ## Features
