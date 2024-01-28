@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.5]
+
+- feat: Group menu options for creation in a submenu.
+- feat: Extension menu now only appears in Angular projects (presence of `angular.json`).
+
 ## [1.0.4]
 
 - fix: Correct handling of single and double quotes in renaming paths.

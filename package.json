@@ -27,7 +27,9 @@
     "Snippets",
     "Programming Languages"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "workspaceContains:**/angular.json"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
@@ -72,56 +74,64 @@
       },
       {
         "command": "extension.ngfFilesNewComponent",
-        "title": "New Component"
+        "title": "Component"
       },
       {
         "command": "extension.ngfFilesNewInlineComponent",
-        "title": "New Component Inline"
+        "title": "Component Inline"
       },
       {
         "command": "extension.ngfFilesNewModule",
-        "title": "New Module"
+        "title": "Module"
       },
       {
         "command": "extension.ngfFilesNewService",
-        "title": "New Service"
+        "title": "Service"
       },
       {
         "command": "extension.ngfFilesNewDirective",
-        "title": "New Directive"
+        "title": "Directive"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "ngf.files.menu",
+        "label": "New Angular ..."
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "when": "resourceLangId == typescript",
-          "command": "extension.ngfFilesRename",
-          "group": "Ferhado Angular Files"
+          "when": "explorerResourceIsFolder && ngfFilesActivated",
+          "submenu": "ngf.files.menu",
+          "group": "navigation@-0"
         },
         {
+          "when": "resourceLangId == typescript && ngfFilesActivated",
+          "command": "extension.ngfFilesRename",
+          "group": "navigation@-0"
+        }
+      ],
+      "ngf.files.menu": [
+        {
           "when": "config.ngf.files.menu.all || config.ngf.files.menu.component-inline",
-          "command": "extension.ngfFilesNewInlineComponent",
-          "group": "Ferhado Angular Files"
+          "command": "extension.ngfFilesNewInlineComponent"
         },
         {
           "when": "config.ngf.files.menu.all || config.ngf.files.menu.component",
-          "command": "extension.ngfFilesNewComponent",
-          "group": "Ferhado Angular Files"
+          "command": "extension.ngfFilesNewComponent"
         },
         {
           "when": "config.ngf.files.menu.all || config.ngf.files.menu.module",
-          "command": "extension.ngfFilesNewModule",
-          "group": "Ferhado Angular Files"
+          "command": "extension.ngfFilesNewModule"
         },
         {
           "when": "config.ngf.files.menu.all || config.ngf.files.menu.service",
-          "command": "extension.ngfFilesNewService",
-          "group": "Ferhado Angular Files"
+          "command": "extension.ngfFilesNewService"
         },
         {
           "when": "config.ngf.files.menu.all || config.ngf.files.menu.directive",
-          "command": "extension.ngfFilesNewDirective",
-          "group": "Ferhado Angular Files"
+          "command": "extension.ngfFilesNewDirective"
         }
       ]
     }

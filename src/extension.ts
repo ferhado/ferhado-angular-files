@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
-import { openCommandDialog } from './command-dialog';
-import { fileConfig } from './files.config';
-import { showRenameComponentDialog } from './rename-component';
+import {openCommandDialog} from './command-dialog';
+import {fileConfig} from './files.config';
+import {showRenameComponentDialog} from './rename-component';
 
 export function activate(context: vscode.ExtensionContext) {
   for (let config of fileConfig) {
@@ -17,4 +17,5 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   context.subscriptions.push(disposable);
+  vscode.commands.executeCommand('setContext', 'ngfFilesActivated', true);
 }
