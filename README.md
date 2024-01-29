@@ -1,57 +1,62 @@
 # Ngf Angular Files Extension
 
-A vscode extension for quick generation of Angular components, services, modules, directives, and renames angular files with it's class name and related files.
+A Visual Studio Code (VSCode) extension for quickly generating Angular files and renaming components.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ferhado/ferhado-angular-files/main/assets/ngf-angular-files-vsce-ext2.gif" alt="Description of GIF">
+  <img src="https://raw.githubusercontent.com/ferhado/ferhado-angular-files/main/assets/ngf-angular-files-vsce-ext3.gif" alt="Description of GIF">
 </p>
 
 ## Features
 
 - Quick scaffolding with predefined templates.
-- Right-click on a `.ts` file to rename it and all associated files, including import paths, and class names for consistency.
-- Right-click or Command Palette file generation.
+- Rename components and all associated files to component, including import paths, and class names for consistency.
 - Supports `angular.json` configuration for prefix and style file extension.
+
+## Usage:
+
+- Right-click a folder for file generation.
+- Right-click on `.component.ts` file for renaming.
 
 ## Commands and Generated Files
 
-- New Component Inline:
+- Component Inline:
 
-  - `component.ts` single file
+  - file.`component.ts` single file _(standalone: true)_.
 
-- New Component:
+- Component:
 
-  - `component.ts` _(standalone: true)_.
-  - `component.html`
-  - `component.scss/css/less/sass`
+  - file.`component.ts` _(standalone: true)_.
+  - file.`component.html`
+  - file.`component.scss/css/less/sass`
   - `index.ts`
 
-- New Module: [_(needs to be activated via settings)_](#module-settings)
+- Module:
 
-  - `module.ts`
-  - `component.ts` _(declared in module)_.
-  - `component.html`
-  - `component.scss/css/less/sass`
-  - `service.ts` _(provided in module)_.
+  - file.`module.ts`
+  - file.`component.ts` _(declared in module)_.
+  - file.`component.html`
+  - file.`component.scss/css/less/sass`
+  - file.`service.ts` _(provided in module)_.
   - `index.ts`
 
-- New Service:
+- Service:
 
-  - `service.ts` _(provided in root)_.
+  - file.`service.ts` _(provided in root)_.
 
-- New Directive:
-  - `directive.ts` _(standalone: true)_.
+- Directive:
 
-## Configuration Options
+  - file.`directive.ts` _(standalone: true)_.
 
-All commands are enabled by default expect module:<a id="module-settings"></a>
+- Model:
 
-- `ngf.files.menu.rename`: Toggle `Rename Angular Files` in Explorer Context (default: true).
-- `ngf.files.menu.component`: Toggle `New Component` in Explorer Context (default: true).
-- `ngf.files.menu.component-inline`: Toggle `New Component Inline` in Explorer Context (default: true).
-- `ngf.files.menu.module`: Toggle `New Module` in Explorer Context (default: true).
-- `ngf.files.menu.service`: Toggle `New Service` in Explorer Context (default: true).
-- `ngf.files.menu.directive`: Toggle `New Directive` in Explorer Context (default: true).
+  - file.`model.ts`
+
+- Enum:
+
+  - file.`enum.ts`
+
+- Interface:
+  - file.`interface.ts`
 
 ## angular.json support
 

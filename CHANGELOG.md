@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.6]
+
+- feat: Add model
+- feat: Add interface
+- feat: Add enum
+- removed: Config options for hiding menu items, as they are no longer needed with the submenu structure.
+
 ## [1.0.5]
 
 - feat: Group menu options for creation in a submenu.
