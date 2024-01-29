@@ -31,3 +31,7 @@ export function normalizePath(inputName: string): string {
       .toLowerCase()
   );
 }
+
+export function isStyleExtSupported(styleExt: string): boolean {
+  return ['css', 'scss', 'sass', 'less'].includes(styleExt);
+}

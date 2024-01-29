@@ -39,7 +39,7 @@
     "commands": [
       {
         "command": "extension.ngfFilesRename",
-        "title": "Rename Angular Files"
+        "title": "Rename Angular Component"
       },
       {
         "command": "extension.ngfFilesNewComponent",
@@ -88,7 +88,7 @@
           "group": "navigation@-0"
         },
         {
-          "when": "resourceLangId == typescript && ngfFilesActivated",
+          "when": "resourceFilename =~ /component.ts/ && ngfFilesActivated",
           "command": "extension.ngfFilesRename",
           "group": "navigation@-0"
         }
