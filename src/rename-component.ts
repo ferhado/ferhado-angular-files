@@ -35,7 +35,7 @@ async function renameImportsInContent(filePath: string, currentBasename: string,
   await fs.promises.writeFile(filePath, fileContent);
 }
 
-async function renameComponentFiles(dirPath: string, currentBasename: string, newBasename: string): Promise<void> {
+async function renameRelatedFiles(dirPath: string, currentBasename: string, newBasename: string): Promise<void> {
   const files = await fs.promises.readdir(dirPath);
 
   for (const file of files) {
@@ -74,7 +74,8 @@ export async function showRenameDialog(uri: vscode.Uri) {
   const currentFilePath = folderUri.fsPath;
 
   if (!currentFilePath.endsWith('.ts')) return;
-  let currentBasename = path.basename(currentFilePath).replace(/(\.component|\.service|\.module|\.directive)\.ts$/, '');
+  const regex = /\.(component|service|module|directive|model|interface|enum)\.ts$/;
+  let currentBasename = path.basename(currentFilePath).replace(regex, '');
 
   let newName = await vscode.window.showInputBox({prompt: 'Rename to', value: currentBasename});
   newName = normalizePath(newName ?? '');
@@ -84,5 +85,5 @@ export async function showRenameDialog(uri: vscode.Uri) {
   }
 
   const dirPath = path.dirname(currentFilePath);
-  await renameComponentFiles(dirPath, currentBasename, newName);
+  await renameRelatedFiles(dirPath, currentBasename, newName);
 }
