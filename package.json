@@ -34,38 +34,7 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "properties": {
-        "ngf.files.menu.rename": {
-          "type": "boolean",
-          "default": true,
-          "description": "Toggle `Rename Angular Files` in Explorer Context"
-        },
-        "ngf.files.menu.component": {
-          "type": "boolean",
-          "default": true,
-          "description": "Toggle `New Component` in Explorer Context"
-        },
-        "ngf.files.menu.component-inline": {
-          "type": "boolean",
-          "default": true,
-          "description": "Toggle `New Component Inline` in Explorer Context"
-        },
-        "ngf.files.menu.module": {
-          "type": "boolean",
-          "default": false,
-          "description": "Toggle `New Module` in Explorer Context"
-        },
-        "ngf.files.menu.service": {
-          "type": "boolean",
-          "default": true,
-          "description": "Toggle `New Service` in Explorer Context"
-        },
-        "ngf.files.menu.directive": {
-          "type": "boolean",
-          "default": true,
-          "description": "Toggle `New Directive` in Explorer Context"
-        }
-      }
+      "properties": {}
     },
     "commands": [
       {
@@ -91,6 +60,18 @@
       {
         "command": "extension.ngfFilesNewDirective",
         "title": "Directive"
+      },
+      {
+        "command": "extension.ngfFilesNewModel",
+        "title": "Model"
+      },
+      {
+        "command": "extension.ngfFilesNewInterface",
+        "title": "Interface"
+      },
+      {
+        "command": "extension.ngfFilesNewEnum",
+        "title": "Enum"
       }
     ],
     "submenus": [
@@ -114,24 +95,28 @@
       ],
       "ngf.files.menu": [
         {
-          "when": "config.ngf.files.menu.all || config.ngf.files.menu.component-inline",
           "command": "extension.ngfFilesNewInlineComponent"
         },
         {
-          "when": "config.ngf.files.menu.all || config.ngf.files.menu.component",
           "command": "extension.ngfFilesNewComponent"
         },
         {
-          "when": "config.ngf.files.menu.all || config.ngf.files.menu.module",
           "command": "extension.ngfFilesNewModule"
         },
         {
-          "when": "config.ngf.files.menu.all || config.ngf.files.menu.service",
           "command": "extension.ngfFilesNewService"
         },
         {
-          "when": "config.ngf.files.menu.all || config.ngf.files.menu.directive",
           "command": "extension.ngfFilesNewDirective"
+        },
+        {
+          "command": "extension.ngfFilesNewModel"
+        },
+        {
+          "command": "extension.ngfFilesNewInterface"
+        },
+        {
+          "command": "extension.ngfFilesNewEnum"
         }
       ]
     }

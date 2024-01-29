@@ -17,39 +17,34 @@ export class FileCreator {
 
   createFiles(files: FileSource[]) {
     files.forEach((source) => {
-      if (source.extention === 'scss') {
-        source.extention = this.config.style;
-      }
-
       this.createFile(source);
-
-      if (source.addToIndex) {
-        this.addToIndex(`${this.fileNameBase}.${source.suffix}`);
-      }
     });
   }
 
   private createFile(source: FileSource) {
-    const fileName =
-      source.suffix === 'index' ? 'index.ts' : `${this.fileNameBase}.${source.suffix}.${source.extention}`;
-    const filePath = path.join(this.directoryPath, fileName);
     const className = toCamelCase(this.fileNameBase);
-
-    let content = source.content ?? this.loadTemplate(source.templatePth || '');
 
     // Replace variables
     const replacments = {
       DIR_PATH: this.directoryPath,
       FILE_NAME: this.fileNameBase,
-      FILE_PATH: filePath,
       CLASS_NAME: className,
       APP_PREFIX: this.config.prefix,
       STYLE_EXT: this.config.style,
     };
 
+    const fileName = this.replaceTemplateVariables(source.fileName, replacments);
+    const filePath = path.join(this.directoryPath, fileName);
+
+    let content = source.content ?? this.loadTemplate(source.templatePth || '');
+
     content = this.replaceTemplateVariables(content, replacments);
 
     this.writeFile(filePath, content);
+
+    if (source.addToIndex) {
+      this.addToIndex(fileName.replace(/\.ts$/, ''));
+    }
   }
 
   private writeFile(filePath: string, content: string): void {

@@ -15,7 +15,7 @@ export const openCommandDialog = async (action: ActionConfig, uri: vscode.Uri) =
     return;
   }
 
-  const inputName = await getInputName(action.title);
+  const inputName = await getInputName(action.title ?? action.command);
 
   if (!inputName || /^[0-9]/.test(inputName)) {
     return;

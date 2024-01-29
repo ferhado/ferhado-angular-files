@@ -6,8 +6,7 @@ export const ACTIONS_CONFIG: ActionConfig[] = [
     command: 'InlineComponent',
     files: [
       {
-        suffix: 'component',
-        extention: 'ts',
+        fileName: `%FILE_NAME%.component.ts`,
         templatePth: 'inline.component.ts',
         addToIndex: true,
       },
@@ -15,76 +14,62 @@ export const ACTIONS_CONFIG: ActionConfig[] = [
   },
 
   {
-    title: 'Component',
     command: 'Component',
     isFolder: true,
     files: [
       {
-        suffix: 'component',
-        extention: 'ts',
+        fileName: `%FILE_NAME%.component.ts`,
         templatePth: 'component.ts',
       },
       {
-        suffix: 'component',
-        extention: 'html',
+        fileName: `%FILE_NAME%.component.html`,
         templatePth: 'component.html',
       },
       {
-        suffix: 'component',
-        extention: 'scss',
+        fileName: `%FILE_NAME%.component.%STYLE_EXT%`,
       },
       {
-        suffix: 'index',
-        extention: 'ts',
+        fileName: 'index.ts',
         content: `export * from './%FILE_NAME%.component';`,
       },
     ],
   },
 
   {
-    title: 'Module',
     command: 'Module',
     isFolder: true,
     files: [
       {
-        suffix: 'module',
-        extention: 'ts',
+        fileName: `%FILE_NAME%.module.ts`,
         templatePth: 'module.ts',
       },
       {
-        suffix: 'component',
-        extention: 'ts',
+        fileName: `%FILE_NAME%.component.ts`,
         templatePth: 'module.component.ts',
       },
       {
-        suffix: 'service',
-        extention: 'ts',
+        fileName: `%FILE_NAME%.service.ts`,
         templatePth: 'module.service.ts',
       },
       {
-        suffix: 'component',
-        extention: 'html',
+        fileName: `%FILE_NAME%.component.html`,
         content: '<h5>%FILE_NAME% works!</h5>',
       },
       {
-        suffix: 'component',
-        extention: 'scss',
+        fileName: `%FILE_NAME%.component.%STYLE_EXT%`,
       },
       {
-        suffix: 'index',
-        extention: 'ts',
+        fileName: 'index.ts',
         content: `export * from './%FILE_NAME%.module';\nexport * from './%FILE_NAME%.service';`,
       },
     ],
   },
 
   {
-    title: 'Service',
     command: 'Service',
     files: [
       {
-        suffix: 'service',
-        extention: 'ts',
+        fileName: `%FILE_NAME%.service.ts`,
         templatePth: 'service.ts',
         addToIndex: true,
       },
@@ -92,13 +77,41 @@ export const ACTIONS_CONFIG: ActionConfig[] = [
   },
 
   {
-    title: 'Directive',
     command: 'Directive',
     files: [
       {
-        suffix: 'directive',
-        extention: 'ts',
+        fileName: `%FILE_NAME%.directive.ts`,
         templatePth: 'directive.ts',
+        addToIndex: true,
+      },
+    ],
+  },
+  {
+    command: 'Model',
+    files: [
+      {
+        fileName: `%FILE_NAME%.model.ts`,
+        templatePth: 'model.ts',
+        addToIndex: true,
+      },
+    ],
+  },
+  {
+    command: 'Interface',
+    files: [
+      {
+        fileName: `%FILE_NAME%.interface.ts`,
+        templatePth: 'interface.ts',
+        addToIndex: true,
+      },
+    ],
+  },
+  {
+    command: 'Enum',
+    files: [
+      {
+        fileName: `%FILE_NAME%.enum.ts`,
+        templatePth: 'enum.ts',
         addToIndex: true,
       },
     ],

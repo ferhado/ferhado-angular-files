@@ -6,15 +6,14 @@ export type AppConfig = {
 };
 
 export type FileSource = {
-  suffix: string;
-  extention: string;
+  fileName: string;
   content?: string;
   templatePth?: string;
   addToIndex?: boolean;
 };
 
 export type ActionConfig = {
-  title: string;
+  title?: string;
   command: string;
   files: FileSource[];
   isFolder?: boolean;
