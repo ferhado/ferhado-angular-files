@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
-import { normalizePath, toCamelCase } from './utils';
+import {normalizePath, toCamelCase} from './utils';
 
 async function renameImportsInContent(filePath: string, currentBasename: string, newBasename: string): Promise<void> {
   let fileContent = await fs.promises.readFile(filePath, 'utf8');
@@ -63,7 +63,7 @@ async function renameComponentFiles(dirPath: string, currentBasename: string, ne
   }
 }
 
-export async function showRenameComponentDialog(uri: vscode.Uri) {
+export async function showRenameDialog(uri: vscode.Uri) {
   const folderUri = uri || (vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri : null);
 
   if (!folderUri) {
@@ -76,7 +76,7 @@ export async function showRenameComponentDialog(uri: vscode.Uri) {
   if (!currentFilePath.endsWith('.ts')) return;
   let currentBasename = path.basename(currentFilePath).replace(/(\.component|\.service|\.module|\.directive)\.ts$/, '');
 
-  let newName = await vscode.window.showInputBox({ prompt: 'Rename to', value: currentBasename });
+  let newName = await vscode.window.showInputBox({prompt: 'Rename to', value: currentBasename});
   newName = normalizePath(newName ?? '');
 
   if (!newName || newName === currentBasename || /^[0-9]/.test(newName)) {
