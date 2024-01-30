@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.7]
+
+fix: Regex in file renaming script to correctly escape periods
+feat: Add Pipe
+feat: Add Class
+feat: Group submenu by category
+
 ## [1.0.6]
 
 - feat: Add model

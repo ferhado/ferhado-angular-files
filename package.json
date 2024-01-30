@@ -2,7 +2,7 @@
   "name": "ngf-angular-files",
   "displayName": "Ngf Angular Files",
   "description": "Generates Angular Files and Renames Components",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "publisher": "ferhado",
   "icon": "./assets/logo.png",
   "keywords": [
@@ -76,6 +76,10 @@
       {
         "command": "extension.ngfFilesNewClass",
         "title": "Class"
+      },
+      {
+        "command": "extension.ngfFilesNewPipe",
+        "title": "Pipe"
       }
     ],
     "submenus": [
@@ -116,7 +120,7 @@
         },
         {
           "command": "extension.ngfFilesNewDirective",
-          "group": "z"
+          "group": "a"
         },
         {
           "command": "extension.ngfFilesNewModel",
@@ -133,6 +137,10 @@
         {
           "command": "extension.ngfFilesNewClass",
           "group": "z"
+        },
+        {
+          "command": "extension.ngfFilesNewPipe",
+          "group": "a"
         }
       ]
     }

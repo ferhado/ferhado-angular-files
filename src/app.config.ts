@@ -116,4 +116,24 @@ export const ACTIONS_CONFIG: ActionConfig[] = [
       },
     ],
   },
+  {
+    command: 'Class',
+    files: [
+      {
+        fileName: `%FILE_NAME%.ts`,
+        templatePth: 'class.ts',
+        addToIndex: true,
+      },
+    ],
+  },
+  {
+    command: 'Pipe',
+    files: [
+      {
+        fileName: `%FILE_NAME%.pipe.ts`,
+        templatePth: 'pipe.ts',
+        addToIndex: true,
+      },
+    ],
+  },
 ];
