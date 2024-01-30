@@ -18,7 +18,10 @@ export class FileRenamer {
 
     const currentFilePath = folderUri.fsPath;
 
-    if (!currentFilePath.endsWith('.component.ts')) return;
+    if (!currentFilePath.endsWith('.component.ts')) {
+      return;
+    }
+
     let currentBasename = path.basename(currentFilePath).replace(/\.component\.ts$/, '');
 
     let newName = await vscode.window.showInputBox({prompt: 'Rename to', value: currentBasename});
