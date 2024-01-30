@@ -72,6 +72,10 @@
       {
         "command": "extension.ngfFilesNewEnum",
         "title": "Enum"
+      },
+      {
+        "command": "extension.ngfFilesNewClass",
+        "title": "Class"
       }
     ],
     "submenus": [
@@ -95,28 +99,40 @@
       ],
       "ngf.files.menu": [
         {
-          "command": "extension.ngfFilesNewInlineComponent"
+          "command": "extension.ngfFilesNewInlineComponent",
+          "group": "a"
         },
         {
-          "command": "extension.ngfFilesNewComponent"
+          "command": "extension.ngfFilesNewComponent",
+          "group": "a"
         },
         {
-          "command": "extension.ngfFilesNewModule"
+          "command": "extension.ngfFilesNewModule",
+          "group": "a"
         },
         {
-          "command": "extension.ngfFilesNewService"
+          "command": "extension.ngfFilesNewService",
+          "group": "a"
         },
         {
-          "command": "extension.ngfFilesNewDirective"
+          "command": "extension.ngfFilesNewDirective",
+          "group": "z"
         },
         {
-          "command": "extension.ngfFilesNewModel"
+          "command": "extension.ngfFilesNewModel",
+          "group": "z"
         },
         {
-          "command": "extension.ngfFilesNewInterface"
+          "command": "extension.ngfFilesNewInterface",
+          "group": "z"
         },
         {
-          "command": "extension.ngfFilesNewEnum"
+          "command": "extension.ngfFilesNewEnum",
+          "group": "z"
+        },
+        {
+          "command": "extension.ngfFilesNewClass",
+          "group": "z"
         }
       ]
     }
