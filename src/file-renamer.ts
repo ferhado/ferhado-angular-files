@@ -60,7 +60,7 @@ export class FileRenamer {
   private async updateImportsInFile(filePath: string, currentBasename: string, newBasename: string): Promise<void> {
     let fileContent = await fs.promises.readFile(filePath, 'utf8');
 
-    const regex = new RegExp(`\./\\${currentBasename}\\.(component|module)`, 'g');
+    const regex = new RegExp(`\\.\/${currentBasename}\\.(component|module)`, 'g');
     fileContent = fileContent.replace(regex, `./${newBasename}.$1`);
 
     const oldClassName = toCamelCase(currentBasename);
