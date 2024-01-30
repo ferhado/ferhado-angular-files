@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import path from 'path';
 import * as vscode from 'vscode';
 import {AppConfig, FileSource} from './app.types';
-import {toCamelCase} from './utils';
+import {generateClassName} from './utils';
 
 export class FileCreator {
   private directoryPath!: string;
@@ -22,7 +22,7 @@ export class FileCreator {
   }
 
   private createFile(source: FileSource) {
-    const className = toCamelCase(this.fileNameBase);
+    const className = generateClassName(this.fileNameBase);
 
     // Replace variables
     const replacments = {

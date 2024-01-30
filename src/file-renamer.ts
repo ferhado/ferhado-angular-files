@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
-import {normalizePath, toCamelCase} from './utils';
+import {generateClassName, normalizePath} from './utils';
 
 export class FileRenamer {
   constructor(uri: vscode.Uri) {
@@ -66,8 +66,8 @@ export class FileRenamer {
     const regex = new RegExp(`\\.\/${currentBasename}\\.(component|module)`, 'g');
     fileContent = fileContent.replace(regex, `./${newBasename}.$1`);
 
-    const oldClassName = toCamelCase(currentBasename);
-    const newClassName = toCamelCase(newBasename);
+    const oldClassName = generateClassName(currentBasename);
+    const newClassName = generateClassName(newBasename);
     const classRegex = new RegExp(`\\b${oldClassName}(Component|Module)`, 'g');
     fileContent = fileContent.replace(classRegex, `${newClassName}$1`);
 

@@ -12,24 +12,17 @@ export function createDirectory(folderUri: vscode.Uri, pathSegments: string[]): 
   return directoryPath.fsPath;
 }
 
-export function toCamelCase(str: string): string {
-  return str
-    .replace(/^[a-z]/, (match) => match.toUpperCase())
-    .replace(/[-_]+(.)?/g, (match, group1) => (group1 ? group1.toUpperCase() : ''));
+export function generateClassName(input: string): string {
+  return input
+    .replace(/[^a-zA-Z0-9_]/g, ' ') // Replace non-allowed characters with space
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('')
+    .replace(/^[0-9]+/, ''); // Remove leading numbers
 }
 
 export function normalizePath(inputName: string): string {
-  return (
-    inputName
-      .trim()
-      // Remove any leading non-alpha characters followed by numbers
-      .replace(/^[^a-zA-Z]+/, '')
-      // Rest of the normalization
-      .replace(/[^a-zA-Z0-9 \_\-/\.]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/\/+/g, '/')
-      .toLowerCase()
-  );
+  return inputName.trim();
 }
 
 export function isStyleExtSupported(styleExt: string): boolean {
