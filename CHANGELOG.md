@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.8]
+
+fix: file and class names issue
+
 ## [1.0.7]
 
 fix: Regex in file renaming script to correctly escape periods
