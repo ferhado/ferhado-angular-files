@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.9]
+
+- fix: removed prefix `I` from interface name.
+- feat: Add the flat component for generating component files in the same directory.
+
 ## [1.0.8]
 
 - fix: file and class names issue
