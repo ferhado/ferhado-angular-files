@@ -1,3 +1,3 @@
-export interface I%CLASS_NAME% {
+export interface %CLASS_NAME% {
   
 }
