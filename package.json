@@ -50,6 +50,10 @@
         "title": "Component Inline"
       },
       {
+        "command": "extension.ngfFilesNewFlatComponent",
+        "title": "Component Flat"
+      },
+      {
         "command": "extension.ngfFilesNewModule",
         "title": "Module"
       },
@@ -104,6 +108,10 @@
       "ngf.files.menu": [
         {
           "command": "extension.ngfFilesNewInlineComponent",
+          "group": "a"
+        },
+        {
+          "command": "extension.ngfFilesNewFlatComponent",
           "group": "a"
         },
         {

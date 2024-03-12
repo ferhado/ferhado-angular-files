@@ -12,6 +12,24 @@ export const ACTIONS_CONFIG: ActionConfig[] = [
       },
     ],
   },
+  {
+    title: 'Component',
+    command: 'FlatComponent',
+    files: [
+      {
+        fileName: `%FILE_NAME%.component.ts`,
+        templatePth: 'component.ts',
+        addToIndex: true,
+      },
+      {
+        fileName: `%FILE_NAME%.component.html`,
+        templatePth: 'component.html',
+      },
+      {
+        fileName: `%FILE_NAME%.component.%STYLE_EXT%`,
+      },
+    ],
+  },
 
   {
     command: 'Component',
