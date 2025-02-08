@@ -21,11 +21,11 @@ A Visual Studio Code (VSCode) extension for quickly generating Angular files and
 
 - Component Inline:
 
-  - file.`component.ts` single file _(standalone: true)_.
+  - file.`component.ts` single file.
 
 - Component:
 
-  - file.`component.ts` _(standalone: true)_.
+  - file.`component.ts`.
   - file.`component.html`
   - file.`component.scss/css/less/sass`
   - `index.ts`
@@ -45,7 +45,7 @@ A Visual Studio Code (VSCode) extension for quickly generating Angular files and
 
 - Directive:
 
-  - file.`directive.ts` _(standalone: true)_.
+  - file.`directive.ts`.
 
 - Model:
 

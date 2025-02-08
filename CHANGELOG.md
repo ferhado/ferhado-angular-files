@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.1.0]
+
+- feat: Updated extension to align with Angular 19 by removing `standalone: true` as all components are standalone by default.
+- fix: Corrected bug in pipe name generation.
+
 ## [1.0.9]
 
 - fix: removed prefix `I` from interface name.

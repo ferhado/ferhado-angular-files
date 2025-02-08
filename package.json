@@ -21,7 +21,7 @@
   },
   "license": "MIT",
   "engines": {
-    "vscode": "^1.84.0"
+    "vscode": "^1.97.0"
   },
   "categories": [
     "Snippets",
@@ -163,15 +163,15 @@
     "pack": "vsce package"
   },
   "devDependencies": {
-    "@types/vscode": "^1.84.0",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "20.x",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "glob": "^10.3.10",
-    "mocha": "^10.2.0",
-    "typescript": "^5.3.3",
-    "@vscode/test-electron": "^2.3.9"
+    "@types/vscode": "^1.97.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
+    "eslint": "^9.20.0",
+    "glob": "^11.0.1",
+    "mocha": "^11.1.0",
+    "typescript": "^5.7.3",
+    "@vscode/test-electron": "^2.4.1"
   }
 }
