@@ -2,7 +2,7 @@
   "name": "ngf-angular-files",
   "displayName": "Ngf Angular Files",
   "description": "Generates Angular Files and Renames Components",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "publisher": "ferhado",
   "icon": "./assets/logo.png",
   "keywords": [
