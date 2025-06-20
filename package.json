@@ -1,6 +1,6 @@
 {
   "name": "ngf-angular-files",
-  "displayName": "Ngf Angular Files",
+  "displayName": "Angular Files CLI",
   "description": "Generates Angular Files and Renames Components",
   "version": "2.0.0",
   "publisher": "ferhado",
