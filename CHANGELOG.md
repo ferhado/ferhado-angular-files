@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+
+- docs: added configuration guide for customizing Angular CLI flags (e.g., skipTests, style) via angular.json
+
 ## [2.0.0]
 
 - feat: Refactored extension to use Angular CLI commands for generating components, services, directives, pipes, interfaces, classes, and enums.
