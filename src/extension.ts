@@ -1,21 +1,35 @@
 import * as vscode from 'vscode';
-import {ACTIONS_CONFIG} from './app.config';
-import {FileRenamer} from './file-renamer';
-import {FileCreatorDialog} from './files-creator-dialog';
+import {executeCliCommand} from './cli-command-executor';
+import {commands} from './cli-commands';
+import {RenameHandler} from './rename-command';
+import {RoutesCommand} from './routes-command';
 
 export function activate(context: vscode.ExtensionContext) {
-  // create files
-  for (let action of ACTIONS_CONFIG) {
-    const command = `extension.ngfFilesNew${action.command}`;
-    let disposable = vscode.commands.registerCommand(command, (uri: vscode.Uri) => new FileCreatorDialog(action, uri));
+  for (const cmd of commands) {
+    const disposable = vscode.commands.registerCommand(`extension.${cmd.id}`, async (uri: vscode.Uri) => {
+      const name = await vscode.window.showInputBox({prompt: `${cmd.title} name`});
+      if (!name) return;
+
+      const path = uri?.fsPath || vscode.workspace.workspaceFolders?.[0].uri.fsPath || '.';
+
+      await executeCliCommand(cmd.cli(name), path, `Creating ${cmd.title}: ${name}`);
+    });
+
     context.subscriptions.push(disposable);
   }
 
-  // rename files
-  const command = `extension.ngfFilesRename`;
-  let disposable = vscode.commands.registerCommand(command, (uri: vscode.Uri) => new FileRenamer(uri));
-  context.subscriptions.push(disposable);
+  const routeCommand = vscode.commands.registerCommand('extension.ngfFilesNewRoutes', async (uri: vscode.Uri) => {
+    const handler = new RoutesCommand(uri);
+    await handler.run();
+  });
+  context.subscriptions.push(routeCommand);
 
-  // activate extension
+  // Register the rename command
+  const renameCommand = vscode.commands.registerCommand('extension.ngfFilesRename', async (uri: vscode.Uri) => {
+    const handler = new RenameHandler(uri);
+    await handler.run();
+  });
+  context.subscriptions.push(renameCommand);
+
   vscode.commands.executeCommand('setContext', 'ngfFilesActivated', true);
 }

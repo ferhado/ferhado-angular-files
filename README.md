@@ -1,91 +1,30 @@
 # Ngf Angular Files Extension
 
-A Visual Studio Code (VSCode) extension for quickly generating Angular files and renaming components.
+A VSCode extension using Angular CLI commands to generate Angular files and rename classes/components with all related files and imports. Works seamlessly with Angular v20+ conventions. For older Angular versions, generated files include traditional suffixes automatically.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ferhado/ferhado-angular-files/main/assets/ngf-angular-files-vsce-ext3.gif" alt="Description of GIF">
+  <img src="https://raw.githubusercontent.com/ferhado/ferhado-angular-files/main/assets/ngf-angular-files-vsce-ext3.gif" alt="Demo GIF">
 </p>
 
 ## Features
 
-- Quick scaffolding with predefined templates.
-- Rename components and all associated files to component, including import paths, and class names for consistency.
-- Supports `angular.json` configuration for prefix and style file extension.
+- Generates Angular components, services, directives, pipes, interfaces, classes, and enums via Angular CLI commands.
+- Renames components and all related files, updating import paths and class names automatically.
+- Adds custom route files with empty `Routes` arrays.
+- Works with Angular CLI v20+ without suffixes; supports older Angular versions with suffixes.
 
-## Usage:
+## Usage
 
-- Right-click a folder for file generation.
-- Right-click on `.component.ts` file for renaming.
-
-## Commands and Generated Files
-
-- Component Inline:
-
-  - file.`component.ts` single file.
-
-- Component:
-
-  - file.`component.ts`.
-  - file.`component.html`
-  - file.`component.scss/css/less/sass`
-  - `index.ts`
-
-- Module:
-
-  - file.`module.ts`
-  - file.`component.ts` _(declared in module)_.
-  - file.`component.html`
-  - file.`component.scss/css/less/sass`
-  - file.`service.ts` _(provided in module)_.
-  - `index.ts`
-
-- Service:
-
-  - file.`service.ts` _(provided in root)_.
-
-- Directive:
-
-  - file.`directive.ts`.
-
-- Model:
-
-  - file.`model.ts`
-
-- Enum:
-
-  - file.`enum.ts`
-
-- Interface:
-  - file.`interface.ts`
-
-## angular.json support
-
-```json
-...
-"projects": {
-  "my-project": {
-    ...
-    "schematics": {
-      "@schematics/angular:component": {
-        ...
-        "style": "css|scss|sass|less", <-------
-        ...
-      },
-    },
-    ...
-    "prefix": "my-app", <-------
-    ...
-  }
-}
-...
-```
+- Right-click a folder to generate Angular files using CLI.
+- Right-click any .ts file to rename the component/class and all related files automatically.
+- Use the route creation command to add route files.
 
 ## Issues
 
-If you encounter any problems or have a suggestion, please [open an issue](https://github.com/ferhado/ferhado-angular-files/issues) on GitHub.
+Report bugs or suggest features on [GitHub Issues](https://github.com/ferhado/ferhado-angular-files/issues).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+MIT License — see [LICENSE.md](LICENSE.md)
 
-Enjoy your coding! 😉
+Happy coding! 😉

@@ -2,7 +2,7 @@
   "name": "ngf-angular-files",
   "displayName": "Ngf Angular Files",
   "description": "Generates Angular Files and Renames Components",
-  "version": "1.0.10",
+  "version": "2.0.0",
   "publisher": "ferhado",
   "icon": "./assets/logo.png",
   "keywords": [
@@ -66,8 +66,8 @@
         "title": "Directive"
       },
       {
-        "command": "extension.ngfFilesNewModel",
-        "title": "Model"
+        "command": "extension.ngfFilesNewRoutes",
+        "title": "Routes"
       },
       {
         "command": "extension.ngfFilesNewInterface",
@@ -100,7 +100,7 @@
           "group": "navigation@-0"
         },
         {
-          "when": "resourceFilename =~ /component.ts/ && ngfFilesActivated",
+          "when": "resourceFilename =~ /.ts/ && ngfFilesActivated",
           "command": "extension.ngfFilesRename",
           "group": "navigation@-0"
         }
@@ -131,8 +131,8 @@
           "group": "a"
         },
         {
-          "command": "extension.ngfFilesNewModel",
-          "group": "z"
+          "command": "extension.ngfFilesNewRoutes",
+          "group": "a"
         },
         {
           "command": "extension.ngfFilesNewInterface",

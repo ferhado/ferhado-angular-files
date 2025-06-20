@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.0.0]
+
+- feat: Refactored extension to use Angular CLI commands for generating components, services, directives, pipes, interfaces, classes, and enums.
+- fix: Improved rename command to handle all `.ts` files, update imports and template/style URLs correctly.
+- docs: Updated README and changelog with new Angular CLI integration and usage instructions.
+
 ## [1.1.0]
 
 - feat: Updated extension to align with Angular 19 by removing `standalone: true` as all components are standalone by default.

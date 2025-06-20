@@ -28,3 +28,10 @@ export function normalizePath(inputName: string): string {
 export function isStyleExtSupported(styleExt: string): boolean {
   return ['css', 'scss', 'sass', 'less'].includes(styleExt);
 }
+
+export function toClassName(name: string): string {
+  return name
+    .split('-')
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join('');
+}
