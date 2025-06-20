@@ -2,7 +2,7 @@
   "name": "ngf-angular-files",
   "displayName": "Angular Files CLI",
   "description": "Generate Angular files using Angular CLI and rename .ts files with updated imports and class names",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "publisher": "ferhado",
   "icon": "./assets/logo.png",
   "keywords": [

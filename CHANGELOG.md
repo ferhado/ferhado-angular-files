@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [2.0.1]
 
 - docs: added configuration guide for customizing Angular CLI flags (e.g., skipTests, style) via angular.json
 
