@@ -1,7 +1,7 @@
 {
   "name": "ngf-angular-files",
   "displayName": "Angular Files CLI",
-  "description": "Generates Angular Files and Renames Components",
+  "description": "Generate Angular files using Angular CLI and rename .ts files with updated imports and class names",
   "version": "2.0.0",
   "publisher": "ferhado",
   "icon": "./assets/logo.png",
@@ -39,7 +39,7 @@
     "commands": [
       {
         "command": "extension.ngfFilesRename",
-        "title": "Rename Angular Component"
+        "title": "Rename Source"
       },
       {
         "command": "extension.ngfFilesNewComponent",
